@@ -71,7 +71,7 @@ fn main() -> std::io::Result<()> {
     println!("vgrl.dll ordinal 1337 loaded: {:p}", fn_ptr);
 
     let vgrl1337 = unsafe { std::mem::transmute::<_, VGRL1337>(fn_ptr) };
-    let executable_path = to_wide_chars(&args.executable.to_string_lossy());
+    let executable_path: Vec<u16> = to_wide_chars(&args.executable.to_string_lossy());
 
     let mut startup_info: STARTUPINFOW = unsafe { std::mem::zeroed() };
     let mut process_info: PROCESS_INFORMATION = unsafe { std::mem::zeroed() };
