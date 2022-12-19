@@ -2,8 +2,6 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-#![allow(stable_features)]
-#![feature(try_from)]
 
 use clap::Parser;
 use std::path::PathBuf;
